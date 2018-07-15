@@ -1,0 +1,63 @@
+package ass11_2;
+
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FilenameFilter;
+
+public class MainFile {
+
+	private static final int i = 0;
+
+	public static void main(String[] args) {
+		/*
+		 * try { File destinationDir = new File(args[0]);
+		 * 
+		 * FilenameFilter pref = new FileName(args[1]); //
+		 * *********************** FileFilter lengthPref = new
+		 * FileLength(Integer.parseInt(args[2])); // *************************
+		 * if (destinationDir.isDirectory()) {
+		 * 
+		 * String s[] = destinationDir.list(pref);
+		 * 
+		 * System.out.println("all files from the directory '" + args[0] +
+		 * "' with file extention type " + args[1]); for (int i = 0; i <
+		 * s.length; i++) { System.out.println(s[i]); } //
+		 * ************************* File[] sL =
+		 * destinationDir.listFiles(lengthPref);
+		 * System.out.println("all files larger than length " + args[2] +
+		 * "  from the directory '" + args[0] + "'"); for (int i = 0; i <
+		 * sL.length; i++) {
+		 * 
+		 * System.out.println(sL[i]); } // ***************************** } else
+		 * System.out.println(args[0] + " is not a directory.");
+		 * 
+		 * } catch (Exception e) {
+		 * 
+		 * System.out
+		 * .println("Usage: java listDir dir_name a_suffix_like_txt");
+		 * 
+		 * }
+		 */
+
+		try {
+			File destinationDir = new File(args[0]);
+			FilenameFilter file = new FileName(args[1]);
+			FileFilter fileLength = new FileLength(Integer.parseInt(args[2]));
+
+			if (destinationDir.isDirectory()) {
+				String s[] = destinationDir.list(file);
+				for (int i = 0; i < s.length; i++)
+					System.out.println(s[i]);
+				File[] fL = destinationDir.listFiles(fileLength);
+				for(int i=0;i<fL.length;i++);
+			
+				System.out.println(fL[i]);
+
+			} else
+				System.out.println(args[0] + "is not a directory.");
+		} catch (Exception e) {
+			System.out.println("Usage: java listDir dir_name a_sufix_like_txt");
+		}
+
+	}
+}

@@ -1,0 +1,13 @@
+ls  --help : shows the meaning of the commands  
+The use of space is not allowed in the command line, as space as function in the command line which is not same as windows
+To rename a raspberry pi
+sudo nano /etc/hosts
+change name to a unique one of your choice 
+sudo nano /etc/hostname
+change name to a unique one, same as the previous to avoid conflict.
+Make a sduo reboot to accept changes, log in as pi and type you password
+To create a password
+With the cmd passwd, the password can be changed from the current to the new
+The current if never changed is default, which is “raspberry.”
+To send an IP
+sudo  nano /etc/rc.local

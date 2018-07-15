@@ -1,0 +1,62 @@
+package ass2;
+
+
+ class Person {
+	 
+	 String name;
+		double height;
+		int weight;
+		double bmi;
+		
+		
+		public Person(String name, double height,int weight){
+			this.height = height;
+			this.weight = weight;
+			this.name = name;
+		
+		}
+	
+		
+public String identity(){
+		
+		
+	double bmi = weight/ height * height;
+
+		if (bmi < 20){
+			
+		
+		return  "underweight";
+		}
+		
+		else if(bmi<=20 & bmi<25){
+			
+			return "normalWeight";
+		}
+		
+		else if(bmi<=25 & bmi < 30){
+			
+			return  "slightlyOverweight";
+		}
+		else if(bmi<=30 & bmi < 40){
+			
+			return "significantlyOverweight";
+		}
+		
+		else if(bmi>=40){
+			
+			return  "obesity";
+		}
+		else {
+			
+			return null;
+		}
+		
+		
+	}
+	
+	public String getInfo(){
+		
+		return name + " " + height + " " + weight+ " " + "=" + bmi;
+	}
+	
+}

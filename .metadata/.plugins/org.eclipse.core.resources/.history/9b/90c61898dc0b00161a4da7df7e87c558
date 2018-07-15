@@ -1,0 +1,67 @@
+package ass12;
+
+import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Flight {
+
+	private int flightId = 1;
+	private Date flightDate = "04/04/2016";
+	private String flightTime = "07:00";
+	private String origin = "Vaasa";
+	private String destination = "Helsinki";
+	private double duration;
+	private double price = 145.5;
+	SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+
+	public Flight(int flightId, String flightdate, String flightTime, String origin, String destination, double duration, double price){
+		this.flightId = flightId;
+		
+		this.flightTime = flightTime;
+		this.origin = origin;
+		this.destination = destination;
+		this.price = price;
+		try {
+
+			this.flightDate = df.parse(flightdate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public static void main(String args[]) {
+
+		String fileName = "U:/Flight/FlightInformation.txt";
+
+		FileReader fileReader = null;
+		BufferedReader bufferReader = null;
+
+		try {
+			fileReader = new FileReader(fileName);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			String s;
+			// reading the content of the file using the readline
+			while ((s = bufferedReader.readLine()) != null) {
+				System.out.println(s.indexOf("Flight"));
+				System.out.println(s);
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println(fileName + " was not found");
+		} catch (IOException e) {
+			System.out.println("Can not read from " + fileName);
+		} finally {
+			try {
+				bufferReader.close();
+				fileReader.close();
+			} catch (IOException e) {
+				System.out.println("Couldnt access file! ");
+			} catch (NullPointerException e) {
+				System.out.println("counldnt create the stream file");
+			}
+		}
+
+	}
+}

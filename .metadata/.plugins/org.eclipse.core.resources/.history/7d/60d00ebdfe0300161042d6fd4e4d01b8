@@ -1,0 +1,10 @@
+package ass9;
+
+public interface IMember {
+	String clubName = "City";
+	String foundationYear = "1945";
+	
+	public abstract String search();
+	public abstract String membershipDuration();
+
+}

@@ -1,0 +1,5 @@
+1458113812658	Encapsulate field 'projects'
+1458160850737	Rename type 'RandomGaussian'
+1458160885786	Rename type 'RandomValues'
+1458161023722	Rename local variable 'decRand'
+1458214463273	Rename local variable 'devSum'

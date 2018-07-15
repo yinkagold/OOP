@@ -1,0 +1,34 @@
+package ass3;
+
+public class Person {
+
+	String name;
+	double height;
+	double weight;
+
+	public Person() { // default constructor
+		this.name = "Gold";
+		this.height = 1.70;
+		this.weight = 75;
+
+	}
+	// constructor with all parameters
+	public Person(String name, double PersonHeight, double PersonWeight){
+		this.name = name;
+		this.height = PersonHeight;
+		this.weight = PersonWeight;
+		
+		}
+	public Person(double PersonHeight, double PersonWeight){
+		this.name = "Unknown";
+		this.height = PersonHeight;
+		this.weight = PersonWeight;
+		
+	}
+	public Person(Person person){
+		this.name = person.name;
+		this.height = person.height;
+		this.weight = person.weight;
+		
+	}
+}

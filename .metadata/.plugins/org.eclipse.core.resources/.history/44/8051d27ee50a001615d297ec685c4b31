@@ -1,0 +1,22 @@
+package ass11_2b;
+
+import java.io.File;
+import java.io.FilenameFilter;
+
+public class MainFileLength {
+
+	public static void main(String[] args, FilenameFilter sizeFilter) {
+		File dir = new File(args[0]);
+
+		File[] files = dir.listFiles(sizeFilter);
+		if (files.length == 0) {
+			System.out.println("There are no files bigger 3Kb");
+		} else {
+			for (File aFile : files) {
+				System.out.println(aFile.getName() + " - " + aFile.length());
+			}
+		}
+
+	}
+
+}

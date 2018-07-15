@@ -1,0 +1,17 @@
+package ass9;
+import java.nio.channels.MembershipKey;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+public class Main {
+
+
+	public static void main(String[] args) {
+		
+		
+		Member member = new Member("John", "14/04/2015",2.60);
+		System.out.println(member.membershipDuration());
+
+	}
+
+}

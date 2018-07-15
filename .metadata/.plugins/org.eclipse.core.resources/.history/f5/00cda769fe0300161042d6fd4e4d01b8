@@ -1,0 +1,26 @@
+package ass9;
+
+import java.nio.channels.MembershipKey;
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		String membershipDate = "03/04/2016";
+		Date date = new Date();
+		Date memDate;
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			memDate = df.parse(membershipDate);
+		} catch (ParseException e) {
+			memDate = new Date();
+		}
+		System.out.println((date.getTime() - memDate.getTime())
+				/ (1000 * 60 * 60 * 24));
+
+	}
+}

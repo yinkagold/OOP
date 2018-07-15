@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+	<periodicals>
+		<periodical type="journal">
+			<id>vlo2</id>
+			<category>business</category>
+			<quantity>4</quantity>
+			<releaseDate>
+				<day>27</day>
+				<month>8</month>
+				<year>2016</year>
+			</releaseDate>
+		</periodical>
+		<periodical type = "magazine">
+		<id>vol4 N06</id>
+		<category>sport</category>
+		<quantity>4</quantity>
+		<releaseDate></releaseDate>
+		</periodical>
+	</periodicals>
+</library>

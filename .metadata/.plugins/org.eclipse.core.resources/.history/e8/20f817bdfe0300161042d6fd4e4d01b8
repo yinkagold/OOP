@@ -1,0 +1,61 @@
+package ass9;
+
+import java.util.*;
+import java.util.Date;
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+public class Member implements IMember {
+
+	private String name;
+	public String membershipDate;
+	private double membershipPrice;
+	public String days;
+
+	public Member() {
+		name = "Unknown";
+		membershipDate = "not set";
+		membershipPrice = 0.00;
+
+	}
+
+	public Member(String name, String membershipDate, double membershipPrice) {
+		this.name = name;
+		this.membershipDate = membershipDate;
+		this.membershipPrice = membershipPrice;
+	}
+
+	public double updatePrice(double price) {
+		return membershipPrice = price;
+	}
+
+	public String toString() {
+		return "Name :" + name + " " + "Membership Date :" + membershipDate
+				+ " " + "Membership Price :" + membershipPrice;
+	}
+
+	@Override
+	public String search() {
+		if (this.name == name && this.membershipDate == membershipDate) {
+			return toString();
+		} else
+			return "Member does not exist";
+	}
+
+	@Override
+	public String membershipDuration() {
+		Date date = new Date();
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			Date memDate = df.parse(membershipDate);
+			long diff = date.getTime() - memDate.getTime();
+
+			int diffDays = (int) (diff / (24 * 60 * 60 * 1000));
+		} catch (ParseException e) {
+
+		}
+		return days;
+
+	}
+}

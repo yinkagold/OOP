@@ -1,0 +1,55 @@
+package ass8;
+
+import java.util.Arrays;
+
+public class Customer {
+	private String name;
+	private String address;
+	private Account[] accounts;
+	private double taxRate;
+	private double taxPaid, totalTax, totalProfit;
+
+	public Customer() {
+		name = "unknowm";
+		address = "not assigned";
+		Account[] accounts = {};
+
+	}
+
+	public Customer(String name, String address, Account[] accounts) {
+		this.name = name;
+		this.address = address;
+		this.accounts = accounts;
+		this.taxRate = taxRate;
+	}
+
+	public double getTax(String accountNumber) {
+		double taxPaid = 0;
+		for (Account ac : accounts) {
+			taxPaid += ac.getTax();
+		}
+		return taxPaid;
+
+	}
+/*
+	public double getTotalTax(String accountNumber) { //taxes from the actnumber
+		return getTax() - getTotalProfit(); 
+	}*/
+
+	public double getTotalProfit() {
+		double totalProfit = 0;
+
+		for (Account ac : accounts) {
+			totalProfit += ac.getProfit();
+		}
+
+		return totalProfit;
+	}
+
+	public String toString() {
+		return "Name :" + name + " " + "Address :" + address + " "
+				+ "Accounts :" + Arrays.toString(accounts) + "" +
+				 "Total Tax :" + getTax("accountNumber") + ""
+				+ "Total Profit :" + getTotalProfit();
+	}
+}

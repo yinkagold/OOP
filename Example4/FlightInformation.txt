@@ -1,0 +1,7 @@
+
+FlightDate
+FlightTime
+String origin;
+String destination;
+double duration;
+double price;

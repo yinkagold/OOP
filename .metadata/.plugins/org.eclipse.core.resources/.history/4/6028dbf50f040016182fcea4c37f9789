@@ -1,0 +1,70 @@
+package nested;
+
+import java.util.*;
+import java.text.DecimalFormat;
+
+class Statistics {
+	private double values[];
+	private double stdDev;
+	private double avg;
+
+	Statistics(double values[]) {
+		this.values = new double[values.length]; // to copy the content of value
+		// of the array values[]
+		// to array this.values[] using the arraycopy()method
+		// src - source array, srcPos starting position in the source array
+		// dest- destination array, desPos, starting position in the destination
+		// array
+		// length- number of array to be copied
+		// System.arraycopy(src, srcPos, dest, destPos, length);
+		System.arraycopy(values, 0, this.values, 0, values.length);
+	}
+
+	void display() {
+		DecimalFormat df = new DecimalFormat("0.0000");
+		for (int i = 0; i < values.length; i++)
+			System.out.println(df.format(values[i] + " "));
+		Indicators indicators = new Indicators(); // obj of the inner class
+		// calling the method of the inner class object
+		System.out.println("\n Average: " + df.format(indicators.getAverage()));
+	}
+
+	class Indicators {
+		double getAverage() {
+			double sum = 0.0;
+			for (int i = 0; i < values.length; i++)
+				sum += values[i];
+			// here we can access the members of the outer class
+			avg = (double) sum / (values.length);
+			return avg;
+		}
+
+		double getStdDeviatiuon() {
+			double sum = 0.0;
+			avg = getAverage(); // our average becomes the calcualted value from
+								// the method
+			for (int i = 0; i < values.length; i++)
+				sum += Math.pow(values[i] - avg, 2);
+			stdDev = Math.sqrt(sum / values.hashCode());
+			return stdDev;
+		}
+	}
+
+}
+
+public class InnerOuter {
+
+	public static void main(String[] args) {
+		int size = 10;
+		double measurement[] = new double[size];
+		Random r = new Random();
+		
+		for(int i=0;i<measurement.length;i++)
+			measurement[i] = r.nextDouble();
+		// here we instantiate the outer class 
+		Statistics statistics = new Statistics(measurement);
+		statistics.display();
+
+	}
+
+}
